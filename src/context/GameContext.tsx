@@ -62,7 +62,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         setPlaytime((p) => p + 1);
         setAdTimer((t) => {
           const next = t + 1;
-          if (next >= 60) {
+          if (next >= 30) {
             setIsAdPending(true);
             return 0; // Reset timer
           }

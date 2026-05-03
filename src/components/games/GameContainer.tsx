@@ -169,7 +169,7 @@ export default function GameContainer({ gameId, title, children, onExit }: GameC
            Local persistence active • AdPara v4
          </div>
          <div className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-6">
-           <a href="#" target="_blank" className="hover:text-brand-indigo transition-colors flex items-center gap-1">
+           <a href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" target="_blank" rel="noopener noreferrer" className="hover:text-brand-indigo transition-colors flex items-center gap-1">
              <ExternalLink size={10} />
              Partner Ads
            </a>

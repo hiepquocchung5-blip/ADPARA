@@ -244,6 +244,7 @@ const GAMES = [
 ];
 
 import DisplayAd from '../ads/DisplayAd';
+import NativeBannerAd from '../ads/NativeBannerAd';
 
 export default function GameHub() {
   const { setCurrentGame, state, playtime, adTimer } = useGame();
@@ -329,7 +330,7 @@ export default function GameHub() {
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                   <a 
                     key={i}
-                    href={`https://partner-stream-${i}.example.com`}
+                    href={i % 2 === 0 ? "https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" : "https://www.profitablecpmratenetwork.com/s827fgbj?key=8d52a2aacb138f18bfdc5cee025a0263"}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/40 border border-slate-700/50 hover:bg-brand-indigo/10 hover:border-brand-indigo/30 transition-all duration-300 group active:scale-95 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]"
@@ -368,8 +369,13 @@ export default function GameHub() {
            <div>
               <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-2">Premium Partner</p>
               <ExternalLink 
-                href="https://ads.example.com/google" 
+                href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" 
                 label="High CPM Ads" 
+                className="!w-full justify-between mt-2" 
+              />
+              <ExternalLink 
+                href="https://www.profitablecpmratenetwork.com/s827fgbj?key=8d52a2aacb138f18bfdc5cee025a0263" 
+                label="Rewarded Video Partners" 
                 className="!w-full justify-between mt-2" 
               />
            </div>
@@ -403,7 +409,7 @@ export default function GameHub() {
               <div className="flex items-center gap-4 mt-2">
                 <p className="text-slate-400 text-sm">Select a data stream to begin simulation.</p>
                 <div className="h-3 w-px bg-slate-800" />
-                <a href="#" target="_blank" className="text-[10px] font-black text-brand-indigo hover:text-white transition-colors uppercase tracking-[0.2em] animate-pulse">
+                <a href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" target="_blank" rel="noopener noreferrer" className="text-[10px] font-black text-brand-indigo hover:text-white transition-colors uppercase tracking-[0.2em] animate-pulse">
                   Sponsored Hub →
                 </a>
               </div>
@@ -416,6 +422,7 @@ export default function GameHub() {
 
           <div className="mb-10">
             <DisplayAd placementName="Top Entry Sponsored Stream" />
+            <NativeBannerAd className="mt-4" />
           </div>
 
           <motion.div 
@@ -502,6 +509,7 @@ export default function GameHub() {
           {/* Footer Ad Section */}
           <footer className="mt-12 pt-12 border-t border-slate-800 flex flex-col gap-10">
             <DisplayAd placementName="Bottom Page Placement v2" />
+            <NativeBannerAd />
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
@@ -525,7 +533,7 @@ export default function GameHub() {
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">Sponsored Sequence</p>
                 <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Highest CPC Networks v4.2</h4>
                 <div className="mt-auto">
-                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                    <a href="https://www.profitablecpmratenetwork.com/s827fgbj?key=8d52a2aacb138f18bfdc5cee025a0263" target="_blank" rel="noopener noreferrer" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
                         Inspect Node <Zap size={10} />
                     </a>
                 </div>
@@ -535,7 +543,7 @@ export default function GameHub() {
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">External Asset</p>
                 <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Optimized Video Stream Partners</h4>
                 <div className="mt-auto">
-                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                    <a href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" target="_blank" rel="noopener noreferrer" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
                         Verify Script <TrendingUp size={10} />
                     </a>
                 </div>
@@ -545,7 +553,7 @@ export default function GameHub() {
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">Global Marketplace</p>
                 <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Verified Ad Inventory Access</h4>
                 <div className="mt-auto">
-                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                    <a href="https://www.profitablecpmratenetwork.com/s827fgbj?key=8d52a2aacb138f18bfdc5cee025a0263" target="_blank" rel="noopener noreferrer" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
                         Connect API <Layers size={10} />
                     </a>
                 </div>
@@ -555,9 +563,9 @@ export default function GameHub() {
             <div className="flex items-center justify-between py-6 border-t border-slate-900 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
               <div>AdPara Gaming Network • © 2026</div>
               <div className="flex gap-6">
-                <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms</a>
-                <a href="#" className="hover:text-white transition-colors">Ad-Free Pro</a>
+                <a href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy</a>
+                <a href="https://www.profitablecpmratenetwork.com/s827fgbj?key=8d52a2aacb138f18bfdc5cee025a0263" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms</a>
+                <a href="https://www.profitablecpmratenetwork.com/xvvd0kn7?key=85ad262230d9d09f0c0a3b6b441451c9" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Ad-Free Pro</a>
               </div>
             </div>
           </footer>
