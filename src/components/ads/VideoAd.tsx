@@ -63,23 +63,21 @@ export default function VideoAd({ onComplete, isRewarded = false }: VideoAdProps
         />
       </div>
 
-      {/* skip button */}
-      <div className="absolute top-4 right-4">
-        {timeLeft > 0 ? (
+      <div className="absolute top-4 right-4 flex items-center gap-2">
+        {timeLeft > 0 && (
           <div className="bg-black/60 backdrop-blur-md text-white/80 px-4 py-2 rounded-full text-xs font-bold border border-white/10">
             Ad ends in {timeLeft}s
           </div>
-        ) : (
-          <motion.button
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            onClick={() => onComplete(isRewarded)}
-            className="group flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider hover:bg-blue-400 hover:text-white transition-all shadow-xl"
-          >
-            {isRewarded ? 'Claim Reward' : 'Skip Ad'}
-            <SkipForward size={14} className="group-hover:translate-x-1 transition-transform" />
-          </motion.button>
         )}
+        <motion.button
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          onClick={() => onComplete(timeLeft <= 0 && isRewarded)}
+          className={`group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all shadow-xl backdrop-blur-md ${timeLeft <= 0 ? 'bg-white text-black hover:bg-blue-400 hover:text-white' : 'bg-white/20 text-white hover:bg-white hover:text-black border border-white/10'}`}
+        >
+          {timeLeft <= 0 && isRewarded ? 'Claim Reward' : 'Skip Now'}
+          <SkipForward size={14} className="group-hover:translate-x-1 transition-transform" />
+        </motion.button>
       </div>
 
       <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white/40 text-[10px] font-bold tracking-widest uppercase">

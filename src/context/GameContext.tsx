@@ -128,6 +128,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         triggerAd,
         playtime,
         addCoins,
+        incrementAdCount,
         lastAdReward,
         setLastAdReward,
       }}

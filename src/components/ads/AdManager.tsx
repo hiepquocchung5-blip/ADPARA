@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGame } from '../../context/GameContext';
 import VideoAd from './VideoAd';
-import BannerAd from './BannerAd';
+import DisplayAd from './DisplayAd';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldAlert, Zap } from 'lucide-react';
 
@@ -60,7 +60,7 @@ export default function AdManager() {
                  </div>
                </div>
                <div className="flex items-end self-end">
-                <BannerAd id="interstitial" label="Sponsored Integration" />
+                <DisplayAd placementName="Sponsored Integration" />
                </div>
             </div>
           </div>

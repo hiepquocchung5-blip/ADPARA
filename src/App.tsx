@@ -16,6 +16,12 @@ import MemoryGame from './games/MemoryGame';
 import TowerDefenseGame from './games/TowerDefenseGame';
 import ClickerGame from './games/ClickerGame';
 
+import GenericGamePlaceholder from './games/GenericGamePlaceholder';
+import OpenWorldGame from './games/OpenWorldGame';
+import MarioShootingGame from './games/MarioShootingGame';
+import PoolGame from './games/PoolGame';
+import ChessAiGame from './games/ChessAiGame';
+
 function AppContent() {
   const { currentGame, setCurrentGame } = useGame();
 
@@ -53,7 +59,42 @@ function AppContent() {
             <ClickerGame />
           </GameContainer>
         );
+      case 'open-world':
+        return (
+          <GameContainer gameId="open-world" title="Wanderer's Realm" onExit={handleExit}>
+            <OpenWorldGame />
+          </GameContainer>
+        );
+      case 'mario-shooting':
+        return (
+          <GameContainer gameId="mario-shooting" title="Plumber Strike" onExit={handleExit}>
+            <MarioShootingGame />
+          </GameContainer>
+        );
+      case 'pool':
+        return (
+          <GameContainer gameId="pool" title="Neon Billiards" onExit={handleExit}>
+            <PoolGame />
+          </GameContainer>
+        );
+      case 'chess-ai':
+        return (
+          <GameContainer gameId="chess-ai" title="Grandmaster AI" onExit={handleExit}>
+            <ChessAiGame />
+          </GameContainer>
+        );
       default:
+        // Use placeholder for all other games
+        if (currentGame) {
+          // get title from GAMES constant in a real app, here we pass generic
+          // Actually, let's just pass the ID formatted a bit
+          const title = currentGame.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+          return (
+            <GameContainer gameId={currentGame} title={title} onExit={handleExit}>
+              <GenericGamePlaceholder title={title} />
+            </GameContainer>
+          );
+        }
         return <GameHub />;
     }
   };

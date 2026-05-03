@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { useGame } from '../../context/GameContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { Pause, Play, Trophy, ChevronRight, LayoutGrid, Zap, ExternalLink, TrendingUp } from 'lucide-react';
-import BannerAd from '../ads/BannerAd';
+import DisplayAd from '../ads/DisplayAd';
 
 interface GameContainerProps {
   gameId: string;
@@ -116,7 +116,7 @@ export default function GameContainer({ gameId, title, children, onExit }: GameC
                 
                 {/* Pause Menu Ad */}
                 <div className="mb-6 rounded-xl overflow-hidden border border-slate-800">
-                   <BannerAd id="pause-menu" label="Strategic Timeout Sponsored Content" />
+                   <DisplayAd placementName="Strategic Timeout Sponsored Content" />
                 </div>
 
                 <div className="space-y-3">
@@ -147,11 +147,20 @@ export default function GameContainer({ gameId, title, children, onExit }: GameC
       </div>
 
       {/* Sticky Bottom Ad */}
-      <div className="h-20 bg-slate-900 border-t border-slate-800 flex items-center justify-center px-4 overflow-hidden">
-        <div className="w-full max-w-4xl opacity-80 hover:opacity-100 transition-opacity">
-           <BannerAd id="gameplay-footer" label="Gameplay Data Stream Support" />
-        </div>
-      </div>
+      <AnimatePresence>
+        {isPaused && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 80, opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="bg-slate-900 border-t border-slate-800 flex items-center justify-center px-4 overflow-hidden"
+          >
+            <div className="w-full max-w-4xl opacity-80 hover:opacity-100 transition-opacity">
+               <DisplayAd placementName="Gameplay Data Stream Support" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Persistence Bar */}
       <div className="px-8 py-2 bg-slate-950 border-t border-slate-900 flex items-center justify-between">
