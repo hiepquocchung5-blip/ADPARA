@@ -116,7 +116,7 @@ export default function GameContainer({ gameId, title, children, onExit }: GameC
                 
                 {/* Pause Menu Ad */}
                 <div className="mb-6 rounded-xl overflow-hidden border border-slate-800">
-                   <BannerAd />
+                   <BannerAd id="pause-menu" label="Strategic Timeout Sponsored Content" />
                 </div>
 
                 <div className="space-y-3">
@@ -149,7 +149,7 @@ export default function GameContainer({ gameId, title, children, onExit }: GameC
       {/* Sticky Bottom Ad */}
       <div className="h-20 bg-slate-900 border-t border-slate-800 flex items-center justify-center px-4 overflow-hidden">
         <div className="w-full max-w-4xl opacity-80 hover:opacity-100 transition-opacity">
-           <BannerAd />
+           <BannerAd id="gameplay-footer" label="Gameplay Data Stream Support" />
         </div>
       </div>
 

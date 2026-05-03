@@ -60,7 +60,7 @@ export default function AdManager() {
                  </div>
                </div>
                <div className="flex items-end self-end">
-                <BannerAd />
+                <BannerAd id="interstitial" label="Sponsored Integration" />
                </div>
             </div>
           </div>

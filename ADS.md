@@ -29,12 +29,20 @@ To maximize revenue with AdPara, use these recommended networks:
 - **Unity Ads:** Specialized for game rewarded videos. Superior fill rates for "Watch for Coins" mechanics.
 - **AppLovin (MAX):** Excellent header bidding to ensure you get the highest price for every impression.
 - **IronSource:** Strong for hyper-casual game monetization and user acquisition.
+- **Meta Audience Network:** High-performance social-style ads. Best for high-engagement rewarding placements and localized content targeting.
+- **HighPerformanceFormat:** Active provider for the 468x60 iframe unit (Key: `15d7c92e434af70497d906bd9984b5d7`).
+- **Adsterra:** Famous for high-impact social bars and pop-unders. Excellent for "unlocking" content or getting high CPMs on casual web traffic.
+- **Yandex Ads:** Essential for global reach, particularly in Eastern Europe and CIS. Features robust SDKs for web games.
+- **GameDistribution (Azerion):** A massive aggregator that provides built-in video ads and interstitials specifically for HTML5 games.
+- **Clickadu:** A multi-format network with high fill rates for video and push notifications, great for "Partner Stream" links.
+- **PropellerAds:** Advanced automation tools for monetization with clean, high-CPM video units.
 
 ## 5. Monetization Strategy (Max Profit)
 1. **Header/Footer Focus:** Place permanent 728x90 banners in the hub. 
-2. **The "Blank Link" Hack:** Add "Sponsored Hub" or "Partner Games" links that open high-CPM landing pages in new tabs. These should be styled as part of the core navigation to encourage organic clicks.
+2. **The "10-Link Rotation" Strategy:** Use the "Premium Links" sidebar module to provide 10 unique outbound paths. These are styled as "Partner Streams" to blend with the game-portal aesthetic, significantly increasing CTR.
 3. **Escalating Rewards:** First ad gives 100 coins, second gives 150, etc., to keep users watching.
 4. **Ad Fatigue Guard:** Limiting auto-ads to 50/day ensures high-value users don't churn, while still capturing $2-$5 EPCM from consistent players.
+5. **Loading Screen Interstitials:** Deploy 5-second skippable video ads during level transitions or loading sequences. This minimizes perceived wait time while increasing impression frequency.
 
 ## 6. Technical Implementation
 - Use `isAdPending` flag to wait for "Core Destroyed" or "Sequence Complete" states.

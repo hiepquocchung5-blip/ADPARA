@@ -63,6 +63,8 @@ const GAMES = [
   }
 ];
 
+import BannerAd from '../ads/BannerAd';
+
 export default function GameHub() {
   const { setCurrentGame, state, playtime, adTimer } = useGame();
 
@@ -104,13 +106,16 @@ export default function GameHub() {
               </div>
             </div>
 
-            <div title="Based on recent impressions and clicks" className="cursor-help">
+            <div title="Revenue based on impressions, clicks, and game session length" className="cursor-help bg-emerald-500/5 border border-emerald-500/10 p-3 rounded-xl">
               <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Estimated Ad Revenue</p>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-between">
                  <div className="text-xl font-bold text-emerald-500 tabular-nums">
                    $0.50
                  </div>
-                 <CircleDollarSign size={14} className="text-emerald-500" />
+                 <div className="text-right">
+                    <p className="text-[8px] text-emerald-600 font-black uppercase">Projected CPC</p>
+                    <p className="text-[10px] text-emerald-400 font-bold">$0.12</p>
+                 </div>
               </div>
             </div>
 
@@ -132,29 +137,36 @@ export default function GameHub() {
             </div>
 
             <div>
-              <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-3">Community Hub</p>
-              <div className="space-y-2">
-                <button className="w-full flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors group">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20">
-                    <Trophy size={16} />
-                  </div>
-                  Global Leaders
-                </button>
-                <ExternalLink 
-                  href="#" 
-                  label="Sponsored Hub"
-                  className="w-full justify-between"
-                />
-                <ExternalLink 
-                  href="https://ads.example.com/google" 
-                  label="High CPM Ads"
-                  className="w-full justify-between"
-                />
-                <ExternalLink 
-                  href="https://ads.example.com/unity" 
-                  label="Rewarded Video Partners"
-                  className="w-full justify-between"
-                />
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-3 flex items-center justify-between">
+                Sponsored Hub
+                <span className="text-[8px] bg-brand-indigo/20 text-brand-indigo px-1.5 py-0.5 rounded italic">PREMIUM</span>
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+                  <a 
+                    key={i}
+                    href={`https://partner-stream-${i}.example.com`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/40 border border-slate-700/50 hover:bg-brand-indigo/10 hover:border-brand-indigo/30 transition-all group active:scale-95"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-slate-700 flex items-center justify-center text-[10px] font-black text-slate-400 group-hover:bg-brand-indigo/20 group-hover:text-brand-indigo transition-colors border border-slate-600/50">
+                        {i < 10 ? `0${i}` : i}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[11px] font-bold text-slate-300 group-hover:text-white transition-colors">AD Link {i}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[8px] text-slate-500 uppercase tracking-tighter">partner.v4</span>
+                          <span className="text-[8px] text-emerald-500 font-bold bg-emerald-500/10 px-1 rounded truncateMax">+$0.0{i} EST</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-1 rounded bg-slate-700/30 text-slate-500 group-hover:text-brand-indigo group-hover:bg-brand-indigo/10 transition-all">
+                      <TrendingUp size={12} />
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -197,6 +209,10 @@ export default function GameHub() {
               <span className="bg-slate-800 text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-md border border-slate-700">Ver: 2.1.0-stable</span>
             </div>
           </header>
+
+          <div className="mb-10">
+            <BannerAd id="header" label="Top Entry Sponsored Stream" />
+          </div>
 
           <motion.div 
             variants={container}
@@ -272,6 +288,69 @@ export default function GameHub() {
               );
             })}
           </motion.div>
+
+          {/* Footer Ad Section */}
+          <footer className="mt-12 pt-12 border-t border-slate-800 flex flex-col gap-10">
+            <BannerAd id="footer" label="Bottom Page Placement v2" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'Adsterra', type: 'Social Bar / Pop', status: 'High CPM' },
+                { name: 'Yandex Ads', type: 'Global RTB', status: 'Verified' },
+                { name: 'Unity Ads', type: 'Rewarded Video', status: 'Active' },
+                { name: 'AppLovin', type: 'Header Bidding', status: 'Premium' }
+              ].map((partner) => (
+                <div key={partner.name} className="bg-slate-900/40 border border-slate-800/60 p-4 rounded-xl flex items-center justify-between hover:bg-slate-800/40 transition-colors cursor-pointer group">
+                  <div>
+                    <p className="text-[10px] text-white font-bold group-hover:text-brand-indigo transition-colors">{partner.name}</p>
+                    <p className="text-[8px] text-slate-500 uppercase font-medium">{partner.type}</p>
+                  </div>
+                  <span className="text-[7px] font-black px-1.5 py-0.5 rounded bg-brand-indigo/10 text-brand-indigo uppercase tracking-widest">{partner.status}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-slate-900 overflow-hidden border border-slate-800 rounded-2xl flex flex-col p-6 group hover:border-brand-indigo/30 transition-all cursor-pointer">
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">Sponsored Sequence</p>
+                <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Highest CPC Networks v4.2</h4>
+                <div className="mt-auto">
+                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                        Inspect Node <Zap size={10} />
+                    </a>
+                </div>
+              </div>
+              
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl flex flex-col p-6 group hover:border-brand-indigo/30 transition-all cursor-pointer">
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">External Asset</p>
+                <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Optimized Video Stream Partners</h4>
+                <div className="mt-auto">
+                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                        Verify Script <TrendingUp size={10} />
+                    </a>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl flex flex-col p-6 group hover:border-brand-indigo/30 transition-all cursor-pointer">
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black mb-1">Global Marketplace</p>
+                <h4 className="text-white font-bold mb-3 group-hover:text-brand-indigo transition-colors capitalize">Verified Ad Inventory Access</h4>
+                <div className="mt-auto">
+                    <a href="#" target="_blank" className="text-brand-indigo text-xs font-bold uppercase tracking-widest hover:underline flex items-center gap-2">
+                        Connect API <Layers size={10} />
+                    </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between py-6 border-t border-slate-900 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+              <div>AdPara Gaming Network • © 2026</div>
+              <div className="flex gap-6">
+                <a href="#" className="hover:text-white transition-colors">Privacy</a>
+                <a href="#" className="hover:text-white transition-colors">Terms</a>
+                <a href="#" className="hover:text-white transition-colors">Ad-Free Pro</a>
+              </div>
+            </div>
+          </footer>
         </div>
       </main>
     </div>
